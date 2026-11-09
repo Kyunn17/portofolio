@@ -1,0 +1,13 @@
+{
+  "name": "khairul-faridz-portfolio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "audit": ".\\.agent\\skills\\impeccable\\bin\\impeccable.exe detect src"
+  }
+}
+

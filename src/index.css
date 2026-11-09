@@ -1,0 +1,114 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+ * Design tokens — ported 1:1 from the Stitch "Editorial Developer
+ * Portfolio" design. Themes are switched via `.dark` / `.clean` on <html>.
+ * ------------------------------------------------------------------ */
+:root,
+.dark {
+  --bg: #111111;
+  --card: #181818;
+  --border: #262626;
+  --text-primary: #f5f5f5;
+  --text-secondary: #999999;
+  --accent: #d6d6d6;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  color-scheme: dark;
+}
+
+.clean {
+  --bg: #f5f3ee;
+  --card: #ebe8e1;
+  --border: #ddd8ce;
+  --text-primary: #171717;
+  --text-secondary: #77736d;
+  --accent: #a5a097;
+  --glass-bg: rgba(0, 0, 0, 0.04);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  color-scheme: light;
+}
+
+/* Expose tokens as Tailwind utilities: bg-bg, bg-card, border-line,
+ * text-fg, text-muted, text-accent, bg-glass, border-glass-line … */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-line: var(--border);
+  --color-fg: var(--text-primary);
+  --color-muted: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-glass: var(--glass-bg);
+  --color-glass-line: var(--glass-border);
+
+  --font-display: 'Syne', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* offset anchor jumps for the fixed floating navbar */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    transition:
+      background-color 0.4s ease,
+      color 0.4s ease;
+  }
+
+  ::selection {
+    @apply bg-neutral-500 text-white;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* Shared section shell: max-w-7xl container, generous rhythm, divider */
+  .section-shell {
+    @apply mx-auto max-w-7xl border-b border-line px-6 py-28;
+  }
+
+  /* Bracketed mono kicker, e.g. "[ 02 / BIOGRAPHY ]" */
+  .kicker {
+    @apply font-mono text-xs uppercase tracking-widest text-muted;
+  }
+}
+
+/* Background 60px editorial grid */
+.editorial-grid {
+  background-size: 60px 60px;
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  opacity: 0.35;
+}
+
+/* Subtle film grain */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
