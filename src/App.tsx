@@ -34,11 +34,13 @@ export default function App() {
         {/* 5. Gym Experience */}
         <Gym />
 
-        {/* 6. Social Media / Connect */}
+        {/* 6. Certificates */}
+        <Certificates />
+
+        {/* 7. Social Media / Connect */}
         <Contact />
 
-        {/* 7. Certificates */}
-        <Certificates />
+
       </main>
 
       {/* Minimal Footer */}
