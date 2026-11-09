@@ -1,6 +1,20 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, type ComponentType } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
 import { Pause, Play, Sparkles, Orbit, Grid, ExternalLink } from 'lucide-react'
+import {
+  SiGithub,
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiTailwindcss,
+  SiLaravel,
+  SiPhp,
+  SiPostgresql,
+  SiGit,
+  SiDatabricks,
+  SiPython,
+} from 'react-icons/si'
 
 export type PlanetData = {
   id: string
@@ -11,7 +25,7 @@ export type PlanetData = {
   orbitRadius: number // px on desktop
   angleOffset: number // initial degree 0 - 360
   orbitDuration: number // seconds per revolution
-  symbol: string // planet badge symbol
+  icon: ComponentType<{ className?: string }>
 }
 
 export const PLANETS: PlanetData[] = [
@@ -25,7 +39,7 @@ export const PLANETS: PlanetData[] = [
     orbitRadius: 105,
     angleOffset: 45,
     orbitDuration: 22,
-    symbol: 'TS',
+    icon: SiTypescript,
   },
   {
     id: 'react',
@@ -36,7 +50,7 @@ export const PLANETS: PlanetData[] = [
     orbitRadius: 105,
     angleOffset: 225,
     orbitDuration: 22,
-    symbol: '⚛',
+    icon: SiReact,
   },
 
   // Orbit 2: Application Frameworks
@@ -49,7 +63,7 @@ export const PLANETS: PlanetData[] = [
     orbitRadius: 175,
     angleOffset: 0,
     orbitDuration: 34,
-    symbol: 'N',
+    icon: SiNextdotjs,
   },
   {
     id: 'tailwind',
@@ -60,7 +74,7 @@ export const PLANETS: PlanetData[] = [
     orbitRadius: 175,
     angleOffset: 120,
     orbitDuration: 34,
-    symbol: '≋',
+    icon: SiTailwindcss,
   },
   {
     id: 'laravel',
@@ -71,7 +85,7 @@ export const PLANETS: PlanetData[] = [
     orbitRadius: 175,
     angleOffset: 240,
     orbitDuration: 34,
-    symbol: 'LV',
+    icon: SiLaravel,
   },
 
   // Orbit 3: Engines & Databases
@@ -84,7 +98,7 @@ export const PLANETS: PlanetData[] = [
     orbitRadius: 245,
     angleOffset: 60,
     orbitDuration: 48,
-    symbol: 'PG',
+    icon: SiPostgresql,
   },
   {
     id: 'php',
@@ -95,7 +109,7 @@ export const PLANETS: PlanetData[] = [
     orbitRadius: 245,
     angleOffset: 180,
     orbitDuration: 48,
-    symbol: 'PHP',
+    icon: SiPhp,
   },
   {
     id: 'javascript',
@@ -106,7 +120,7 @@ export const PLANETS: PlanetData[] = [
     orbitRadius: 245,
     angleOffset: 300,
     orbitDuration: 48,
-    symbol: 'JS',
+    icon: SiJavascript,
   },
 
   // Orbit 4: Data Systems & Cloud Infrastructure
@@ -119,7 +133,7 @@ export const PLANETS: PlanetData[] = [
     orbitRadius: 315,
     angleOffset: 30,
     orbitDuration: 64,
-    symbol: 'DB',
+    icon: SiDatabricks,
   },
   {
     id: 'python',
@@ -130,7 +144,7 @@ export const PLANETS: PlanetData[] = [
     orbitRadius: 315,
     angleOffset: 150,
     orbitDuration: 64,
-    symbol: 'PY',
+    icon: SiPython,
   },
   {
     id: 'git',
@@ -141,7 +155,7 @@ export const PLANETS: PlanetData[] = [
     orbitRadius: 315,
     angleOffset: 270,
     orbitDuration: 64,
-    symbol: 'GIT',
+    icon: SiGit,
   },
 ]
 
@@ -305,18 +319,8 @@ export function SolarSystem3D({ activeView, onViewChange }: SolarSystem3DProps) 
               aria-label="GitHub Sun Core - View Khairul Faridz GitHub"
               className="relative flex h-16 w-16 items-center justify-center rounded-full border-2 border-amber-300 bg-gradient-to-tr from-amber-600 via-amber-400 to-amber-200 text-black shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-amber-400"
             >
-              {/* GitHub Octocat SVG */}
-              <svg
-                className="h-8 w-8 fill-current drop-shadow"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                />
-              </svg>
+              {/* GitHub Official Logo */}
+              <SiGithub className="h-8 w-8 fill-current drop-shadow" aria-hidden="true" />
 
               {/* Sun Flare Label */}
               <div className="pointer-events-none absolute -bottom-7 rounded-md border border-amber-500/30 bg-black/80 px-2 py-0.5 font-mono text-[9px] font-bold tracking-wider text-amber-300 uppercase backdrop-blur-sm">
@@ -332,6 +336,7 @@ export function SolarSystem3D({ activeView, onViewChange }: SolarSystem3DProps) 
             const isHovered = hoveredPlanet?.id === planet.id
             const isSelected = selectedPlanet?.id === planet.id
             const isHighlighted = isHovered || isSelected
+            const PlanetIcon = planet.icon
 
             return (
               <div
@@ -349,7 +354,7 @@ export function SolarSystem3D({ activeView, onViewChange }: SolarSystem3DProps) 
                   style={{
                     transform: `rotate(${planet.angleOffset}deg) translateX(${planet.orbitRadius}px)`,
                   }}
-                  className="pointer-events-auto absolute top-1/2 left-1/2 -mt-4 -ml-4 flex h-8 w-8 items-center justify-center [transform-style:preserve-3d]"
+                  className="pointer-events-auto absolute top-1/2 left-1/2 -mt-4.5 -ml-4.5 flex h-9 w-9 items-center justify-center [transform-style:preserve-3d]"
                 >
                   {/* Counter-rotate so planet always faces camera upright */}
                   <motion.button
@@ -362,17 +367,15 @@ export function SolarSystem3D({ activeView, onViewChange }: SolarSystem3DProps) 
                     style={{
                       transform: 'rotateX(-56deg)', // Counter the solar system base tilt
                     }}
-                    className={`group relative flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-300 focus:outline-none ${
+                    className={`group relative flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300 focus:outline-none ${
                       isHighlighted
                         ? 'scale-125 border-fg bg-fg text-bg shadow-[0_0_20px_rgba(255,255,255,0.4)]'
                         : 'border-line bg-card text-fg hover:scale-110 hover:border-fg'
                     }`}
                     aria-label={`Planet ${planet.name} (${planet.tier})`}
                   >
-                    {/* Planetary body styling */}
-                    <div className="font-mono text-[10px] font-bold tracking-tighter">
-                      {planet.symbol}
-                    </div>
+                    {/* Planetary body official logo */}
+                    <PlanetIcon className="h-4.5 w-4.5 transition-transform group-hover:scale-110" />
 
                     {/* Planet Mini Label */}
                     <span

@@ -2,21 +2,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { BrandIcon } from '../ui/BrandIcon'
 import { Reveal } from '../ui/Reveal'
 import { SectionHeader } from '../ui/SectionHeader'
-import { CsvValidatorMock } from '../mockups/CsvValidatorMock'
-import { LifeSyncMock } from '../mockups/LifeSyncMock'
-import { CritiplayMock } from '../mockups/CritiplayMock'
-import { projects, sectionIndex, type Project } from '../../data/portfolio'
-
-function renderMock(name: Project['mock']) {
-  switch (name) {
-    case 'csv':
-      return <CsvValidatorMock />
-    case 'lifesync':
-      return <LifeSyncMock />
-    case 'critiplay':
-      return <CritiplayMock />
-  }
-}
+import { projects, sectionIndex } from '../../data/portfolio'
 
 export function Projects() {
   return (
@@ -34,14 +20,39 @@ export function Projects() {
           const isReverse = i === 1 // Project 02 flips: details left, mockup right
           const num = String(i + 1).padStart(2, '0')
 
-          const mockupNode = (
+          const projectVisualNode = (
             <div
-              className={`relative aspect-[16/10] overflow-hidden rounded-2xl border border-line bg-card shadow-lg lg:col-span-7 ${
+              className={`group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-card shadow-xl lg:col-span-7 ${
                 isReverse ? 'order-1 lg:order-2' : ''
               }`}
             >
-              <div className="pointer-events-none absolute inset-0 z-10 bg-neutral-900/10 transition-colors group-hover:bg-transparent" />
-              {renderMock(p.mock)}
+              {/* Browser Window Header */}
+              <div className="flex items-center justify-between border-b border-line bg-bg/90 px-4 py-3 backdrop-blur-sm">
+                <div className="flex items-center gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full border border-line bg-neutral-400/30" />
+                  <span className="h-2.5 w-2.5 rounded-full border border-line bg-neutral-400/30" />
+                  <span className="h-2.5 w-2.5 rounded-full border border-line bg-neutral-400/30" />
+                </div>
+                <div className="flex items-center gap-1.5 rounded-full border border-line bg-card px-3 py-0.5 font-mono text-[10px] text-muted">
+                  <span className="text-muted/60">app://</span>
+                  <span className="text-fg font-medium">{p.title.toLowerCase().replace(/\s+/g, '-')}.prod</span>
+                </div>
+                <div className="flex items-center gap-1.5 font-mono text-[9px] text-muted uppercase">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="hidden sm:inline">LIVE ARCHITECTURE</span>
+                </div>
+              </div>
+
+              {/* Project Screenshot Container */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-bg">
+                <img
+                  src={p.image}
+                  alt={`Production screenshot of ${p.title}`}
+                  className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg/30 via-transparent to-transparent opacity-50" />
+              </div>
             </div>
           )
 
@@ -120,7 +131,7 @@ export function Projects() {
           return (
             <Reveal key={p.title}>
               <article className="group grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
-                {mockupNode}
+                {projectVisualNode}
                 {detailsNode}
               </article>
             </Reveal>

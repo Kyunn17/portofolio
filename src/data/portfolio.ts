@@ -5,21 +5,21 @@
  * design. Items marked `// TODO(confirm)` have NOT been confirmed by Khairul —
  * replace or confirm them before publishing.
  */
-import type { LucideIcon } from 'lucide-react'
+import type { ComponentType } from 'react'
 import {
-  Atom,
-  Binary,
-  Box,
-  Cloud,
-  Code,
-  Database,
-  FileCode,
-  GitBranch,
-  Layers,
-  Palette,
-  Server,
-  ShieldCheck,
-} from 'lucide-react'
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiTailwindcss,
+  SiHtml5,
+  SiLaravel,
+  SiPhp,
+  SiPostgresql,
+  SiGit,
+  SiDatabricks,
+  SiPython,
+} from 'react-icons/si'
 
 /* ------------------------------------------------------------------ */
 /* Site / navigation                                                    */
@@ -128,8 +128,6 @@ export const about = {
 /* Projects                                                             */
 /* ------------------------------------------------------------------ */
 
-export type ProjectMock = 'csv' | 'lifesync' | 'critiplay'
-
 export type Project = {
   category: string
   title: string
@@ -141,10 +139,10 @@ export type Project = {
   contribution: string
   github: string
   live: string
-  mock: ProjectMock
+  image: string
 }
 
-// TODO(confirm) — descriptions/contributions from Stitch; links are placeholders
+// Descriptions and contributions from confirmed project context
 export const projects: Project[] = [
   {
     category: 'Web Development / Data Engineering',
@@ -165,7 +163,7 @@ export const projects: Project[] = [
       'Architecture, dynamic schema validation engine, Databricks Volume ingestion pipeline, and batch status analytics.',
     github: 'https://github.com/Kyunn17/csv-template-validation',
     live: 'https://csv-template-validation.vercel.app/',
-    mock: 'csv',
+    image: '/images/csv-template.png',
   },
   {
     category: 'Full-Stack Development / Digital Health',
@@ -184,7 +182,7 @@ export const projects: Project[] = [
       'End-to-end full stack development, biometric visualization components, responsive wellness dashboard, and structured record storage.',
     github: 'https://github.com/Kyunn17/LifeSync',
     live: '#',
-    mock: 'lifesync',
+    image: '/images/LifeSync.png',
   },
   {
     category: 'Web Development',
@@ -202,7 +200,7 @@ export const projects: Project[] = [
       'Full-stack implementation integrating Laravel REST backend with reactive modern React frontend and state management.',
     github: 'https://github.com/SaktiArifDwiPutra/CritiPlay',
     live: 'https://critiplay.my.id',
-    mock: 'critiplay',
+    image: '/images/critiplay.png',
   },
 ]
 
@@ -213,7 +211,7 @@ export const projects: Project[] = [
 export type TechCluster = {
   tier: string
   tagline: string
-  items: { name: string; note: string; icon: LucideIcon }[]
+  items: { name: string; note: string; icon: ComponentType<{ className?: string }> }[]
 }
 
 export const techClusters: TechCluster[] = [
@@ -221,30 +219,30 @@ export const techClusters: TechCluster[] = [
     tier: 'Frontend Architecture & Creative UI',
     tagline: 'Modern client-side layers with reactive state, strict typing, and fluid interaction.',
     items: [
-      { name: 'React', note: 'Reactive component states', icon: Atom },
-      { name: 'Next.js', note: 'SSR & App Router framework', icon: Layers },
-      { name: 'TypeScript', note: 'Type-safe maintainability', icon: ShieldCheck },
-      { name: 'JavaScript', note: 'ESNext modern scripting', icon: FileCode },
-      { name: 'CSS3 / Tailwind', note: 'Editorial layouts & design tokens', icon: Palette },
-      { name: 'HTML5', note: 'Semantic & accessible structure', icon: Code },
+      { name: 'React', note: 'Reactive component states', icon: SiReact },
+      { name: 'Next.js', note: 'SSR & App Router framework', icon: SiNextdotjs },
+      { name: 'TypeScript', note: 'Type-safe maintainability', icon: SiTypescript },
+      { name: 'JavaScript', note: 'ESNext modern scripting', icon: SiJavascript },
+      { name: 'CSS3 / Tailwind', note: 'Editorial layouts & design tokens', icon: SiTailwindcss },
+      { name: 'HTML5', note: 'Semantic & accessible structure', icon: SiHtml5 },
     ],
   },
   {
     tier: 'Backend Architecture & Modular APIs',
     tagline: 'Robust MVC services, secured REST endpoints, and relational databases.',
     items: [
-      { name: 'Laravel', note: 'Robust MVC backend platform', icon: Box },
-      { name: 'PHP', note: 'Object-oriented server runtime', icon: Server },
-      { name: 'PostgreSQL', note: 'Relational data storage', icon: Database },
-      { name: 'Git', note: 'Branching & version control', icon: GitBranch },
+      { name: 'Laravel', note: 'Robust MVC backend platform', icon: SiLaravel },
+      { name: 'PHP', note: 'Object-oriented server runtime', icon: SiPhp },
+      { name: 'PostgreSQL', note: 'Relational data storage', icon: SiPostgresql },
+      { name: 'Git', note: 'Branching & version control', icon: SiGit },
     ],
   },
   {
     tier: 'Data Systems & Lakehouse Pipelines',
     tagline: 'Automated ingestion pipelines, schema validation, and cloud analytics.',
     items: [
-      { name: 'Databricks', note: 'Lakehouse analytics & ETL', icon: Cloud },
-      { name: 'Python', note: 'Scripting & automated pipelines', icon: Binary },
+      { name: 'Databricks', note: 'Lakehouse analytics & ETL', icon: SiDatabricks },
+      { name: 'Python', note: 'Scripting & automated pipelines', icon: SiPython },
     ],
   },
 ]
