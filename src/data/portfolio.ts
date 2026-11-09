@@ -207,23 +207,46 @@ export const projects: Project[] = [
 ]
 
 /* ------------------------------------------------------------------ */
-/* Tech stack                                                           */
+/* Tech stack & architectural tiers                                     */
 /* ------------------------------------------------------------------ */
 
-// TODO(confirm) — list from Stitch
-export const techStack: { name: string; note: string; icon: LucideIcon }[] = [
-  { name: 'HTML5', note: 'Semantic & accessible markup', icon: Code },
-  { name: 'CSS3 / Tailwind', note: 'Editorial layouts & styling', icon: Palette },
-  { name: 'JavaScript', note: 'ESNext modern scripting', icon: FileCode },
-  { name: 'TypeScript', note: 'Type-safe maintainability', icon: ShieldCheck },
-  { name: 'React', note: 'Reactive component states', icon: Atom },
-  { name: 'Next.js', note: 'SSR & App Router framework', icon: Layers },
-  { name: 'PHP', note: 'Object-oriented server runtime', icon: Server },
-  { name: 'Laravel', note: 'Robust MVC backend platform', icon: Box },
-  { name: 'PostgreSQL', note: 'Relational data storage', icon: Database },
-  { name: 'Python', note: 'Scripting & automated pipelines', icon: Binary },
-  { name: 'Git', note: 'Branching & version control', icon: GitBranch },
-  { name: 'Databricks', note: 'Lakehouse analytics & ETL', icon: Cloud },
+export type TechCluster = {
+  tier: string
+  tagline: string
+  items: { name: string; note: string; icon: LucideIcon }[]
+}
+
+export const techClusters: TechCluster[] = [
+  {
+    tier: 'Frontend Architecture & Creative UI',
+    tagline: 'Modern client-side layers with reactive state, strict typing, and fluid interaction.',
+    items: [
+      { name: 'React', note: 'Reactive component states', icon: Atom },
+      { name: 'Next.js', note: 'SSR & App Router framework', icon: Layers },
+      { name: 'TypeScript', note: 'Type-safe maintainability', icon: ShieldCheck },
+      { name: 'JavaScript', note: 'ESNext modern scripting', icon: FileCode },
+      { name: 'CSS3 / Tailwind', note: 'Editorial layouts & design tokens', icon: Palette },
+      { name: 'HTML5', note: 'Semantic & accessible structure', icon: Code },
+    ],
+  },
+  {
+    tier: 'Backend Architecture & Modular APIs',
+    tagline: 'Robust MVC services, secured REST endpoints, and relational databases.',
+    items: [
+      { name: 'Laravel', note: 'Robust MVC backend platform', icon: Box },
+      { name: 'PHP', note: 'Object-oriented server runtime', icon: Server },
+      { name: 'PostgreSQL', note: 'Relational data storage', icon: Database },
+      { name: 'Git', note: 'Branching & version control', icon: GitBranch },
+    ],
+  },
+  {
+    tier: 'Data Systems & Lakehouse Pipelines',
+    tagline: 'Automated ingestion pipelines, schema validation, and cloud analytics.',
+    items: [
+      { name: 'Databricks', note: 'Lakehouse analytics & ETL', icon: Cloud },
+      { name: 'Python', note: 'Scripting & automated pipelines', icon: Binary },
+    ],
+  },
 ]
 
 /* ------------------------------------------------------------------ */

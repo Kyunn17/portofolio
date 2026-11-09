@@ -58,10 +58,19 @@ export function Gym() {
             {/* Framing Card */}
             <div
               ref={containerRef}
+              role="button"
+              tabIndex={0}
+              aria-label="Toggle full conditioning photograph reveal"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               onClick={handleClick}
-              className="group relative aspect-[4/5] w-full cursor-pointer select-none overflow-hidden rounded-3xl border border-line bg-card shadow-2xl md:cursor-none"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  handleClick()
+                }
+              }}
+              className="group relative aspect-[4/5] w-full cursor-pointer select-none overflow-hidden rounded-3xl border border-line bg-card shadow-2xl focus:outline-none focus:ring-2 focus:ring-fg md:cursor-none"
             >
               {/* Base Image (White shirt attire) */}
               <img

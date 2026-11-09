@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Menu, Moon, Sun, X } from 'lucide-react'
 import { sectionIds, sections, site } from '../../data/portfolio'
@@ -10,11 +10,22 @@ export function Navbar() {
   const active = useActiveSection(sectionIds)
   const [menuOpen, setMenuOpen] = useState(false)
 
+  // Close mobile drawer on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && menuOpen) {
+        setMenuOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [menuOpen])
+
   return (
     <header className="fixed inset-x-0 top-0 z-40 px-6 py-4">
       <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-line bg-bg/80 px-6 py-3 shadow-lg backdrop-blur-md">
         {/* Monogram / brand */}
-        <a href="#hero" className="group flex items-center gap-2">
+        <a href="#hero" aria-label="Back to top" className="group flex items-center gap-2">
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-fg font-display text-sm font-bold tracking-tighter text-bg transition-transform duration-300 group-hover:rotate-12">
             {site.monogram}
           </span>

@@ -97,15 +97,22 @@ export function Projects() {
                   <BrandIcon name="github" className="h-4 w-4" />
                   <span>GitHub Source</span>
                 </a>
-                <a
-                  href={p.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-fg hover:underline"
-                >
-                  <ArrowUpRight className="h-4 w-4" />
-                  <span>Live Showcase</span>
-                </a>
+                {p.live && p.live !== '#' ? (
+                  <a
+                    href={p.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-fg hover:underline"
+                  >
+                    <ArrowUpRight className="h-4 w-4" />
+                    <span>Live Showcase</span>
+                  </a>
+                ) : (
+                  <span className="flex items-center gap-2 rounded-full border border-line px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider text-muted">
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                    <span>Demo on Request</span>
+                  </span>
+                )}
               </div>
             </div>
           )

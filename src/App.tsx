@@ -11,9 +11,16 @@ import { Certificates } from './components/sections/Certificates'
 export default function App() {
   return (
     <div className="relative">
-      {/* Background texture layers from Stitch */}
+      {/* Accessibility Skip Link */}
+      <a
+        href="#hero"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-fg focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:text-bg focus:shadow-lg focus:outline-none"
+      >
+        Skip to Content
+      </a>
+
+      {/* Subtle tactile film grain overlay */}
       <div aria-hidden className="grain-overlay pointer-events-none fixed inset-0 z-50" />
-      <div aria-hidden className="editorial-grid pointer-events-none fixed inset-0 -z-10" />
 
       {/* Floating minimal navbar */}
       <Navbar />
@@ -39,8 +46,6 @@ export default function App() {
 
         {/* 7. Social Media / Connect */}
         <Contact />
-
-
       </main>
 
       {/* Minimal Footer */}

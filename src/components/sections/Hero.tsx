@@ -30,7 +30,7 @@ export function Hero() {
 
         <h1 className="mb-6 font-display text-5xl font-black leading-[0.92] tracking-tighter uppercase sm:text-7xl md:text-8xl lg:text-9xl">
           Hi, I&apos;m <br />
-          <span className="bg-gradient-to-r from-fg via-accent to-muted bg-clip-text text-transparent">
+          <span className="text-fg">
             {site.name}.
           </span>
         </h1>

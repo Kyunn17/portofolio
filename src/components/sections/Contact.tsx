@@ -1,9 +1,22 @@
-import { ArrowUpRight } from 'lucide-react'
+import { useState } from 'react'
+import { ArrowUpRight, Check, Copy } from 'lucide-react'
 import { BrandIcon } from '../ui/BrandIcon'
 import { Reveal } from '../ui/Reveal'
 import { contact, sectionIndex, site, socials } from '../../data/portfolio'
 
 export function Contact() {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(site.email)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      /* clipboard write blocked */
+    }
+  }
+
   return (
     <section id="contact" className="section-shell">
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
@@ -12,15 +25,13 @@ export function Contact() {
           <span className="kicker">[ {sectionIndex('contact')} / INQUIRIES &amp; COLLABORATION ]</span>
           <h2 className="font-display text-5xl font-black uppercase leading-[0.95] tracking-tighter sm:text-7xl md:text-8xl">
             LET&apos;S <br />
-            <span className="bg-gradient-to-r from-fg to-muted bg-clip-text text-transparent">
-              CONNECT.
-            </span>
+            <span className="text-fg">CONNECT.</span>
           </h2>
           <p className="max-w-lg pt-2 text-base font-light leading-relaxed text-muted sm:text-lg">
             {contact.intro}
           </p>
 
-          <div className="pt-6">
+          <div className="flex flex-wrap items-center gap-4 pt-6">
             <a
               href={`mailto:${site.email}`}
               className="group inline-flex items-center gap-3 font-display text-2xl font-bold text-fg transition-colors hover:text-accent sm:text-3xl"
@@ -28,6 +39,25 @@ export function Contact() {
               <span>{site.email}</span>
               <ArrowUpRight className="h-6 w-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </a>
+
+            <button
+              type="button"
+              onClick={handleCopyEmail}
+              aria-label="Copy email address"
+              className="inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-3 py-1.5 font-mono text-xs text-muted transition-colors hover:border-fg hover:text-fg"
+            >
+              {copied ? (
+                <>
+                  <Check className="h-3.5 w-3.5 text-emerald-400" />
+                  <span className="text-emerald-400">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="h-3.5 w-3.5" />
+                  <span>Copy</span>
+                </>
+              )}
+            </button>
           </div>
         </Reveal>
 
