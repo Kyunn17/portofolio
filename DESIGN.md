@@ -16,6 +16,8 @@ colors:
   clean-accent: "#a5a097"
   emerald-accent: "#10b981"
   amber-accent: "#fbbf24"
+  specular: "#ffffff"
+  silver: "#d4d4d4"
 typography:
   display:
     fontFamily: "Syne, sans-serif"
