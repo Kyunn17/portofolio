@@ -22,14 +22,14 @@ export function Navbar() {
   }, [menuOpen])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 px-6 py-4">
-      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-line bg-bg/80 px-6 py-3 shadow-lg backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-40 px-3 py-3 sm:px-6 sm:py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-line bg-bg/80 px-4 py-2.5 shadow-lg backdrop-blur-md sm:px-6 sm:py-3">
         {/* Monogram / brand */}
         <a href="#hero" aria-label="Back to top" className="group flex items-center gap-2">
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-fg font-display text-sm font-bold tracking-tighter text-bg transition-transform duration-300 group-hover:rotate-12">
             {site.monogram}
           </span>
-          <span className="hidden font-display text-xs font-semibold uppercase tracking-widest sm:inline-block">
+          <span className="font-display text-xs font-semibold uppercase tracking-widest sm:inline-block">
             {site.name}
           </span>
         </a>

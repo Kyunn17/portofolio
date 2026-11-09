@@ -6,63 +6,63 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between border-b border-line px-6 pt-32 pb-20"
+      className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between border-b border-line px-4 pt-24 pb-12 sm:px-6 sm:pt-32 sm:pb-20"
     >
       {/* Top meta strip */}
-      <div className="mb-8 flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-widest text-muted">
-        <div className="flex items-center gap-3">
+      <div className="mb-6 flex flex-col items-start justify-between gap-3 font-mono text-xs uppercase tracking-widest text-muted sm:mb-8 sm:flex-row sm:items-center sm:gap-4">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           <span className="rounded border border-line bg-card px-2 py-0.5">{hero.edition}</span>
           <span>{hero.location}</span>
         </div>
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1.5">
-            <Compass className="h-3.5 w-3.5" /> {hero.coordinates}
+            <Compass className="h-3.5 w-3.5 shrink-0" /> {hero.coordinates}
           </span>
           <span className="hidden sm:inline">{hero.discipline}</span>
         </div>
       </div>
 
       {/* Main headline block */}
-      <div className="my-auto py-8">
+      <div className="my-auto py-6 sm:py-8">
         <div className="mb-2 overflow-hidden">
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-accent md:text-sm">{hero.kicker}</p>
+          <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.25em] text-accent sm:mb-3 sm:text-xs md:text-sm">
+            {hero.kicker}
+          </p>
         </div>
 
-        <h1 className="mb-6 font-display text-5xl font-black leading-[0.92] tracking-tighter uppercase sm:text-7xl md:text-8xl lg:text-9xl">
+        <h1 className="mb-6 font-display text-4xl font-black leading-[0.95] tracking-tighter uppercase sm:text-7xl sm:leading-[0.92] md:text-8xl lg:text-9xl">
           Hi, I&apos;m <br />
-          <span className="text-fg">
-            {site.name}.
-          </span>
+          <span className="text-fg">{site.name}.</span>
         </h1>
 
-        <div className="mt-8 grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
+        <div className="mt-6 grid grid-cols-1 items-end gap-6 sm:mt-8 sm:gap-8 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <h2 className="mb-4 font-display text-2xl font-medium leading-tight tracking-tight text-fg sm:text-3xl md:text-4xl">
+            <h2 className="mb-3 font-display text-xl font-medium leading-tight tracking-tight text-fg sm:mb-4 sm:text-3xl md:text-4xl">
               {hero.tagline.toUpperCase()}
             </h2>
-            <p className="max-w-2xl text-base font-light leading-relaxed text-muted sm:text-lg">{hero.intro}</p>
+            <p className="max-w-2xl text-sm font-light leading-relaxed text-muted sm:text-lg">{hero.intro}</p>
           </div>
 
           <div className="flex flex-col justify-between gap-4 sm:flex-row lg:col-span-5 lg:flex-col lg:items-end">
             {/* CTAs */}
-            <div className="flex items-center gap-4">
+            <div className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
               <a
                 href="#projects"
-                className="group flex items-center gap-2 rounded-full bg-fg px-7 py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-bg shadow-md transition-all hover:scale-[1.03]"
+                className="group flex items-center justify-center gap-2 rounded-full bg-fg px-7 py-3.5 text-center font-mono text-xs font-bold uppercase tracking-wider text-bg shadow-md transition-all hover:scale-[1.03]"
               >
                 <span>Explore My Work</span>
                 <ArrowDownRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
               </a>
               <a
                 href="#contact"
-                className="rounded-full border border-line px-7 py-3.5 font-mono text-xs uppercase tracking-wider text-fg transition-all hover:border-fg hover:bg-card"
+                className="flex items-center justify-center rounded-full border border-line px-7 py-3.5 text-center font-mono text-xs uppercase tracking-wider text-fg transition-all hover:border-fg hover:bg-card"
               >
                 Get In Touch
               </a>
             </div>
 
             {/* Social strip */}
-            <div className="flex items-center gap-5 pt-4 font-mono text-sm text-muted">
+            <div className="flex flex-wrap items-center gap-4 pt-2 font-mono text-sm text-muted sm:gap-5 sm:pt-4">
               {socials.map((s) => (
                 <a
                   key={s.key}
@@ -90,10 +90,10 @@ export function Hero() {
       </div>
 
       {/* Bottom ticker & scroll indicator */}
-      <div className="flex flex-col items-center justify-between gap-4 border-t border-line pt-8 font-mono text-xs text-muted sm:flex-row">
-        <div className="flex items-center gap-6 overflow-hidden">
+      <div className="flex flex-col items-center justify-between gap-4 border-t border-line pt-6 font-mono text-xs text-muted sm:flex-row sm:pt-8">
+        <div className="flex flex-wrap items-center justify-center gap-3 overflow-hidden text-center sm:justify-start sm:gap-6 sm:text-left">
           <span className="flex items-center gap-2">
-            <Terminal className="h-3.5 w-3.5" /> {hero.ticker}
+            <Terminal className="h-3.5 w-3.5 shrink-0" /> {hero.ticker}
           </span>
           <span className="hidden md:inline">•</span>
           <span className="hidden md:inline uppercase">{hero.style}</span>

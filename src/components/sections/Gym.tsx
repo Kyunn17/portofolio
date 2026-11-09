@@ -21,6 +21,17 @@ export function Gym() {
     setIsHovered(true)
   }
 
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (isFullyRevealed || !containerRef.current) return
+    const touch = e.touches[0]
+    if (!touch) return
+    const rect = containerRef.current.getBoundingClientRect()
+    const x = touch.clientX - rect.left
+    const y = touch.clientY - rect.top
+    setLensPos({ x, y })
+    setIsHovered(true)
+  }
+
   const handleMouseLeave = () => {
     if (!isFullyRevealed) {
       setIsHovered(false)
@@ -63,6 +74,9 @@ export function Gym() {
               aria-label="Toggle full conditioning photograph reveal"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
+              onTouchStart={handleTouchMove}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleMouseLeave}
               onClick={handleClick}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {

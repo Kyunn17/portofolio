@@ -72,9 +72,9 @@
 }
 
 @layer components {
-  /* Shared section shell: max-w-7xl container, generous rhythm, divider */
+  /* Shared section shell: max-w-7xl container, responsive rhythm, divider */
   .section-shell {
-    @apply mx-auto max-w-7xl border-b border-line px-6 py-28;
+    @apply mx-auto max-w-7xl border-b border-line px-4 sm:px-6 py-16 sm:py-24 md:py-28;
   }
 
   /* Bracketed mono kicker, e.g. "[ 02 / BIOGRAPHY ]" */

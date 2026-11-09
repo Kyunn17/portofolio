@@ -29,7 +29,7 @@ export function Projects() {
       />
 
       {/* Asymmetric alternating gallery (7/5 split) */}
-      <div className="space-y-24">
+      <div className="space-y-16 sm:space-y-24">
         {projects.map((p, i) => {
           const isReverse = i === 1 // Project 02 flips: details left, mockup right
           const num = String(i + 1).padStart(2, '0')
