@@ -302,3 +302,4 @@ export function LanyardBadge({ portrait, caption }: LanyardBadgeProps) {
     </div>
   )
 }
+
