@@ -364,3 +364,17 @@ export const certificatesEmptyState = {
   body: 'This section is deliberately unpadded. As verified certifications and industry recognitions are completed, they will populate here.',
   inProgress: 'Next milestone in progress: Cloud Architecture & Data Systems',
 }
+
+/* ------------------------------------------------------------------ */
+/* Spotify / Personal Soundtrack                                        */
+/* ------------------------------------------------------------------ */
+
+export const SPOTIFY_PLAYLIST_EMBED_URL =
+  'https://open.spotify.com/embed/playlist/6gbM90LSYkIw28OmVBpHPE?utm_source=generator&si=abc179f8bea441f0'
+
+export const spotifySection = {
+  label: 'PERSONAL SOUNDTRACK / 001',
+  title: 'ON REPEAT.',
+  subtitle: 'A little collection of sounds that accompany my days.',
+  note: 'Curated rotation for deep focus, late-night debugging, and architectural sprints.',
+} as const
