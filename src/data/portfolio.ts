@@ -251,6 +251,22 @@ export const techClusters: TechCluster[] = [
 /* Gym / Beyond the code                                                */
 /* ------------------------------------------------------------------ */
 
+export type BeyondModeKey = 'gym' | 'superman'
+
+export type BeyondModeData = {
+  key: BeyondModeKey
+  buttonLabel: string
+  lensTag: string
+  quote: string
+  baseImage: string
+  revealImage: string
+  revealAlt: string
+  badge: string
+  title: string
+  paragraphs: string[]
+  pillars: { title: string; body: string }[]
+}
+
 export const gym = {
   quote: '"Discipline doesn\'t stop at the keyboard."',
   baseImage: '/images/portrait.jpg',
@@ -269,6 +285,66 @@ export const gym = {
     { title: 'Form Over Ego', body: 'Clean structure and fundamentals always triumph over rushed, brittle execution.' },
     { title: 'Sustained Momentum', body: 'Results compound silently through unwavering daily execution.' },
   ],
+  modes: {
+    gym: {
+      key: 'gym',
+      buttonLabel: 'Gym Reveal',
+      lensTag: 'FORM REVEAL',
+      quote: '"Discipline doesn\'t stop at the keyboard."',
+      baseImage: '/images/portrait.jpg',
+      revealImage: '/images/gym-reveal.jpg',
+      revealAlt: 'Khairul Faridz - Athletic Conditioning',
+      badge: 'Physical Resilience & Code',
+      title: 'Consistency as an Engineering Principle.',
+      paragraphs: [
+        'Writing resilient software and building physical conditioning stem from the exact same discipline: showing up every day, breaking complex goals into repeatable sets, and iterating under resistance.',
+        'The gym is not a separate hobby; it is the cognitive reset that fuels clarity during demanding programming sprints, debugging sessions, and architectural design.',
+      ],
+      pillars: [
+        {
+          title: 'Progressive Overload',
+          body: 'Continuously taking on tougher challenges, whether heavier sets or more intricate backend loads.',
+        },
+        {
+          title: 'Form Over Ego',
+          body: 'Clean structure and fundamentals always triumph over rushed, brittle execution.',
+        },
+        {
+          title: 'Sustained Momentum',
+          body: 'Results compound silently through unwavering daily execution.',
+        },
+      ],
+    },
+    superman: {
+      key: 'superman',
+      buttonLabel: 'Superman',
+      lensTag: 'ALTER EGO',
+      quote: '"Mild-mannered engineer by day—unstoppable builder after hours."',
+      baseImage: '/images/portrait.jpg',
+      revealImage: '/images/superman.jpg',
+      revealAlt: 'Khairul Faridz - Superman Alter Ego',
+      badge: 'Alter Ego & Creative Energy',
+      title: 'Every Developer Needs an Alter Ego.',
+      paragraphs: [
+        'Behind the clean architecture, strict TypeScript interfaces, and quiet focus lies a playful alter ego: taking the craft seriously without ever losing the spark of fun and curiosity.',
+        'Suiting up is a reminder that building ambitious software requires boldness, relentless energy, and the willingness to leap into complex problems headfirst.',
+      ],
+      pillars: [
+        {
+          title: 'Heroic Debugging',
+          body: 'Stepping up under pressure when complex systems demand decisive problem-solving and clean fixes.',
+        },
+        {
+          title: 'Dual Identity',
+          body: 'Balancing disciplined analytical engineering with fearless creative experimentation.',
+        },
+        {
+          title: 'Unbreakable Stamina',
+          body: 'Channeling physical conditioning and high-spirited momentum straight into late-night shipping.',
+        },
+      ],
+    },
+  } satisfies Record<BeyondModeKey, BeyondModeData>,
 }
 
 /* ------------------------------------------------------------------ */
