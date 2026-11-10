@@ -22,8 +22,8 @@
   --card: #ebe8e1;
   --border: #ddd8ce;
   --text-primary: #171717;
-  --text-secondary: #77736d;
-  --accent: #a5a097;
+  --text-secondary: #52504c;
+  --accent: #44403c;
   --glass-bg: rgba(0, 0, 0, 0.04);
   --glass-border: rgba(0, 0, 0, 0.1);
   color-scheme: light;
@@ -55,18 +55,32 @@
 
   body {
     @apply bg-bg text-fg font-sans antialiased;
+    caret-color: var(--text-primary);
+    text-underline-offset: 0.22em;
     transition:
       background-color 0.4s ease,
       color 0.4s ease;
   }
 
   ::selection {
-    @apply bg-neutral-500 text-white;
+    background-color: var(--text-primary);
+    color: var(--bg);
+  }
+
+  .font-mono {
+    font-variant-numeric: tabular-nums;
   }
 
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 }

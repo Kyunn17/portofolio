@@ -33,13 +33,19 @@ export function Projects() {
                   <span className="h-2.5 w-2.5 rounded-full border border-line bg-neutral-400/30" />
                   <span className="h-2.5 w-2.5 rounded-full border border-line bg-neutral-400/30" />
                 </div>
-                <div className="flex items-center gap-1.5 rounded-full border border-line bg-card px-3 py-0.5 font-mono text-[10px] text-muted">
+                <div className="flex items-center gap-1.5 rounded-full border border-line bg-card px-3 py-0.5 font-mono text-[11px] text-muted">
                   <span className="text-muted/60">app://</span>
                   <span className="text-fg font-medium">{p.title.toLowerCase().replace(/\s+/g, '-')}.prod</span>
                 </div>
-                <div className="flex items-center gap-1.5 font-mono text-[9px] text-muted uppercase">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="hidden sm:inline">LIVE ARCHITECTURE</span>
+                <div className="flex items-center gap-1.5 font-mono text-[11px] text-muted uppercase">
+                  <span
+                    className={`h-1.5 w-1.5 rounded-full ${
+                      p.live && p.live !== '#' ? 'bg-emerald-500' : 'bg-amber-400'
+                    }`}
+                  />
+                  <span className="hidden sm:inline">
+                    {p.live && p.live !== '#' ? 'LIVE DEPLOYMENT' : 'CASE STUDY'}
+                  </span>
                 </div>
               </div>
 
@@ -62,7 +68,7 @@ export function Projects() {
             >
               <div className="flex items-center gap-3">
                 <span className="font-mono text-2xl font-bold text-accent">{num}/</span>
-                <span className="rounded-full border border-line px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-muted">
+                <span className="rounded-full border border-line px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wider text-muted">
                   {p.category}
                 </span>
               </div>

@@ -50,8 +50,8 @@ export function Navbar() {
 
         {/* Utilities */}
         <div className="flex items-center gap-3">
-          <div className="hidden items-center gap-2 rounded-full border border-line px-3 py-1 font-mono text-[10px] uppercase text-muted lg:flex">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
+          <div className="hidden items-center gap-2 rounded-full border border-line px-3 py-1 font-mono text-[11px] uppercase text-muted lg:flex">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             {site.availability}
           </div>
 

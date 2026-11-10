@@ -42,17 +42,17 @@ export function About() {
 
           {/* Programming journey timeline */}
           <div className="border-t border-line pt-6">
-            <h4 className="mb-6 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-fg">
+            <h3 className="mb-6 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-fg">
               <Milestone className="h-3.5 w-3.5 shrink-0" />
               Programming Journey &amp; Milestones
-            </h4>
+            </h3>
 
             <div className="relative ml-2 space-y-6 border-l border-line pl-4 font-mono text-xs sm:ml-3 sm:pl-6">
               {about.timeline.map((item) => (
                 <div key={item.period} className="group relative">
                   <span className="absolute -left-[21px] top-1 h-2.5 w-2.5 rounded-full bg-muted transition-all group-hover:scale-125 group-hover:bg-fg sm:-left-[31px]" />
-                  <div className="text-[10px] uppercase text-muted">{item.period}</div>
-                  <h5 className="font-display text-sm font-bold uppercase text-fg">{item.title}</h5>
+                  <div className="text-[11px] uppercase text-muted">{item.period}</div>
+                  <h4 className="font-display text-sm font-bold uppercase text-fg">{item.title}</h4>
                   <p className="mt-1 font-sans text-xs text-muted">{item.body}</p>
                 </div>
               ))}

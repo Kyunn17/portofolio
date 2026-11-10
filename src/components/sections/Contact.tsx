@@ -90,7 +90,7 @@ export function Contact() {
           {/* Availability Status Card */}
           <div className="mt-4 flex items-center justify-between rounded-2xl border border-line bg-card p-4 text-xs text-muted">
             <div className="flex items-center gap-2">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+              <span className="h-2 w-2 rounded-full bg-emerald-500" />
               <span>{contact.availability}</span>
             </div>
             <span>{contact.availabilityWindow}</span>

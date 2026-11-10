@@ -112,7 +112,7 @@ export function Gym() {
 
               {/* Circular glass lens indicator & border (desktop only, follows cursor) */}
               <div
-                className={`pointer-events-none absolute hidden h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/60 shadow-[0_0_35px_rgba(255,255,255,0.25)] backdrop-blur-[1px] transition-opacity duration-200 md:block ${
+                className={`pointer-events-none absolute hidden h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/60 shadow-2xl backdrop-blur-[1px] transition-opacity duration-200 md:block ${
                   isHovered && !isFullyRevealed ? 'opacity-100' : 'opacity-0'
                 }`}
                 style={{
@@ -122,14 +122,14 @@ export function Gym() {
               >
                 {/* Reflection accent */}
                 <div className="pointer-events-none absolute inset-2 rounded-full border border-white/20" />
-                <div className="absolute top-3 left-4 rounded-full border border-white/10 bg-black/50 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-white/80">
+                <div className="absolute top-3 left-4 rounded-full border border-white/10 bg-black/60 px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-widest text-white/90">
                   FORM REVEAL
                 </div>
               </div>
 
               {/* Status Badge */}
-              <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full border border-line bg-bg/90 px-3 py-1 font-mono text-[10px] tracking-wider uppercase text-muted backdrop-blur-md">
-                <span className="h-2 w-2 animate-ping rounded-full bg-emerald-500" />
+              <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full border border-line bg-bg/90 px-3 py-1 font-mono text-[11px] tracking-wider uppercase text-muted backdrop-blur-md">
+                <span className="h-2 w-2 rounded-full bg-emerald-500" />
                 <span>
                   {isFullyRevealed ? 'FULL REVEAL ACTIVE (CLICK TO RESET)' : 'HOVER / CLICK TO REVEAL'}
                 </span>
