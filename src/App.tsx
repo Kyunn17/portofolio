@@ -7,10 +7,14 @@ import { TechStack } from './components/sections/TechStack'
 import { Gym } from './components/sections/Gym'
 import { Contact } from './components/sections/Contact'
 import { Certificates } from './components/sections/Certificates'
+import { IntroOverlay } from './components/ui/IntroOverlay'
 
 export default function App() {
   return (
     <div className="relative">
+      {/* Cinematic Interactive Exhibition Intro Overlay */}
+      <IntroOverlay />
+
       {/* Accessibility Skip Link */}
       <a
         href="#hero"
@@ -20,7 +24,7 @@ export default function App() {
       </a>
 
       {/* Subtle tactile film grain overlay */}
-      <div aria-hidden className="grain-overlay pointer-events-none fixed inset-0 z-50" />
+      <div aria-hidden className="grain-overlay pointer-events-none fixed inset-0 z-[60]" />
 
       {/* Floating minimal navbar */}
       <Navbar />
