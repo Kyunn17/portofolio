@@ -286,13 +286,81 @@ export const contact = {
 /* Certificates                                                         */
 /* ------------------------------------------------------------------ */
 
-/** Empty on purpose — the Stitch design shows an intentional empty state. */
-export const certificates: { title: string; issuer: string; year: string; href?: string }[] = []
+export type CertificateModule = {
+  title: string
+  duration: string
+  summary: string
+}
+
+export type Certificate = {
+  id: string
+  credentialId: string
+  title: string
+  subtitle: string
+  issuer: string
+  partnerBadge: string
+  issuedDate: string
+  validUntil: string
+  totalHours: string
+  signatory: string
+  pdfUrl: string
+  verifyUrl: string
+  description: string
+  competencies: string[]
+  modules: CertificateModule[]
+}
+
+export const certificates: Certificate[] = [
+  {
+    id: 'dicoding-data-viz',
+    credentialId: 'RVZKMW19EXD5',
+    title: 'Belajar Dasar Visualisasi Data',
+    subtitle: 'Sertifikat Kompetensi Kelulusan — Data Visualization Fundamentals',
+    issuer: 'Dicoding Indonesia',
+    partnerBadge: 'Google Developers Authorized Training Partner',
+    issuedDate: '10 November 2026',
+    validUntil: '10 November 2029',
+    totalHours: '16 Hours',
+    signatory: 'Narenda Wicaksono (CEO, Dicoding Indonesia)',
+    pdfUrl: '/pdf/certificate1.pdf',
+    verifyUrl: 'https://www.dicoding.com/certificates/RVZKMW19EXD5',
+    description:
+      'Industry-standard competency certification in data processing and effective visual communication—covering spreadsheet data engineering, Gestalt design principles, preattentive attributes, and data storytelling for software developers.',
+    competencies: [
+      'Data Visualization',
+      'Pre-Visualization Data Prep',
+      'Gestalt Design Principles',
+      'Preattentive Attributes',
+      'Data Storytelling',
+    ],
+    modules: [
+      {
+        title: '01. Pendahuluan Visualisasi Data',
+        duration: '1h 39m',
+        summary: 'Core definitions, visualization media, analytical tooling, and data context.',
+      },
+      {
+        title: '02. Persiapan Data Pra-Visualisasi',
+        duration: '8h 14m',
+        summary: 'Spreadsheet navigation, structured data cleansing, and analytical functions.',
+      },
+      {
+        title: '03. Transformasi Data ke Visual',
+        duration: '4h 29m',
+        summary: 'Chart transformation, error prevention, documentation, Gestalt principles, and preattentive attributes.',
+      },
+      {
+        title: '04. Implementasi & Evaluasi Akhir',
+        duration: '1h 07m',
+        summary: 'Data visualization in software engineering workflows and final competency examination.',
+      },
+    ],
+  },
+]
 
 export const certificatesEmptyState = {
   title: 'More to come.',
   subtitle: 'Currently learning, building, and working towards new milestones.',
-  // TODO(confirm) — Stitch mentions "AWS, Next.js Architectures, Data Engineering"; kept generic until confirmed
   body: 'This section is deliberately unpadded. As verified certifications and industry recognitions are completed, they will populate here.',
-  inProgress: 'In progress: Cloud Architecture & Data Systems', // TODO(confirm)
+  inProgress: 'Next milestone in progress: Cloud Architecture & Data Systems',
 }
