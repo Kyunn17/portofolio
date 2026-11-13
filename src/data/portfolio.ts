@@ -263,7 +263,10 @@ export type BeyondModeData = {
   revealAlt: string
   badge: string
   title: string
+  subtitle: string
   paragraphs: string[]
+  stats: { label: string; value: string; detail: string }[]
+  tags: string[]
   pillars: { title: string; body: string }[]
 }
 
@@ -296,10 +299,17 @@ export const gym = {
       revealAlt: 'Khairul Faridz - Athletic Conditioning',
       badge: 'Physical Resilience & Code',
       title: 'Consistency as an Engineering Principle.',
+      subtitle: 'Discipline forged through iron, applied to production software.',
       paragraphs: [
         'Writing resilient software and building physical conditioning stem from the exact same discipline: showing up every day, breaking complex goals into repeatable sets, and iterating under resistance.',
         'The gym is not a separate hobby; it is the cognitive reset that fuels clarity during demanding programming sprints, debugging sessions, and architectural design.',
       ],
+      stats: [
+        { label: 'EXECUTION CADENCE', value: '5 DAYS / WK', detail: 'Consistent resistance cycles' },
+        { label: 'DISCIPLINE INDEX', value: '99.4%', detail: 'Daily unbroken regimen' },
+        { label: 'FOCUS COEFFICIENT', value: '1.0 MAX', detail: 'Zero drift during sprints' },
+      ],
+      tags: ['Progressive Overload', 'Form Over Ego', 'Active Recovery', 'Cognitive Reset'],
       pillars: [
         {
           title: 'Progressive Overload',
@@ -325,10 +335,17 @@ export const gym = {
       revealAlt: 'Khairul Faridz - Superman Alter Ego',
       badge: 'Alter Ego & Creative Energy',
       title: 'Every Developer Needs an Alter Ego.',
+      subtitle: 'Channeling superhero resolve to debug, build, and ship fearlessly.',
       paragraphs: [
         'Behind the clean architecture, strict TypeScript interfaces, and quiet focus lies a playful alter ego: taking the craft seriously without ever losing the spark of fun and curiosity.',
         'Suiting up is a reminder that building ambitious software requires boldness, relentless energy, and the willingness to leap into complex problems headfirst.',
       ],
+      stats: [
+        { label: 'PROBLEM RESOLUTION', value: 'SUPERHUMAN', detail: 'Decisive architectural fixes' },
+        { label: 'RUNTIME STAMINA', value: 'PEAK OVERCLOCK', detail: 'End-to-end sprint shipping' },
+        { label: 'BUG ELIMINATION', value: 'X-RAY PRECISION', detail: 'Zero tolerance for brittle bugs' },
+      ],
+      tags: ['Alter Ego Protocol', 'Cape & Momentum', 'Fearless Builds', 'Heroic Stamina'],
       pillars: [
         {
           title: 'Heroic Debugging',
