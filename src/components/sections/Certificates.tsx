@@ -11,6 +11,7 @@ import {
   Clock,
   Calendar,
 } from 'lucide-react'
+import { motion, AnimatePresence } from 'motion/react'
 import { Reveal } from '../ui/Reveal'
 import { SectionHeader } from '../ui/SectionHeader'
 import {
@@ -25,6 +26,12 @@ export function Certificates() {
   const [copiedId, setCopiedId] = useState(false)
 
   const activeCert = certificates[selectedIndex]
+
+  const handleSelectCert = (idx: number) => {
+    if (idx === selectedIndex) return
+    setSelectedIndex(idx)
+    setCopiedId(false)
+  }
 
   const handleCopyCredential = async (credentialId: string) => {
     try {
@@ -82,13 +89,20 @@ export function Certificates() {
                     type="button"
                     role="tab"
                     aria-selected={isSelected}
-                    onClick={() => setSelectedIndex(idx)}
-                    className={`rounded-full px-4 py-2 text-[11px] uppercase tracking-wider transition-colors ${
+                    onClick={() => handleSelectCert(idx)}
+                    className={`relative z-10 rounded-full border px-4 py-2 text-[11px] uppercase tracking-wider transition-colors ${
                       isSelected
-                        ? 'border border-fg bg-fg font-bold text-bg'
-                        : 'border border-line bg-card text-muted hover:border-fg hover:text-fg'
+                        ? 'border-fg font-bold text-bg'
+                        : 'border-line bg-card text-muted hover:border-fg hover:text-fg'
                     }`}
                   >
+                    {isSelected && (
+                      <motion.span
+                        layoutId="cert-active-pill"
+                        transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+                        className="absolute inset-0 -z-10 rounded-full bg-fg shadow-sm"
+                      />
+                    )}
                     {String(idx + 1).padStart(2, '0')}. {cert.title}
                   </button>
                 )
@@ -98,7 +112,15 @@ export function Certificates() {
 
           {/* Asymmetric 12-Column Split: 7 Cols Document Viewer / 5 Cols Credential Dossier */}
           <Reveal>
-            <article className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-12">
+            <AnimatePresence mode="wait">
+              <motion.article
+                key={activeCert.id}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-12"
+              >
               {/* ======================================================== */}
               {/* LEFT (Cols 1-7): Document Viewer & Curriculum Breakdown  */}
               {/* ======================================================== */}
@@ -172,7 +194,7 @@ export function Certificates() {
                     {/* Bottom status strip over viewer */}
                     <div className="flex items-center justify-between border-t border-line bg-bg/95 px-4 py-2.5 font-mono text-[11px] text-muted">
                       <span>SOURCE: {activeCert.pdfUrl}</span>
-                      <span>2 PAGES (CERTIFICATE + TRANSCRIPT)</span>
+                      <span>{activeCert.pageCount} PAGES (CERTIFICATE + TRANSCRIPT)</span>
                     </div>
                   </div>
                 ) : (
@@ -193,7 +215,7 @@ export function Certificates() {
                       </span>
                     </div>
 
-                    <div className="space-y-3 font-mono">
+                    <div className="max-h-[430px] space-y-3 overflow-y-auto pr-1 font-mono">
                       {activeCert.modules.map((mod) => (
                         <div
                           key={mod.title}
@@ -293,7 +315,9 @@ export function Certificates() {
                     </span>
                     <p className="mt-1 flex items-center gap-1.5 text-xs font-bold text-fg">
                       <Clock className="h-3.5 w-3.5 text-accent" />
-                      <span>{activeCert.totalHours} (4 Modules)</span>
+                      <span>
+                        {activeCert.totalHours} ({activeCert.modules.length} Modules)
+                      </span>
                     </p>
                   </div>
 
@@ -358,7 +382,8 @@ export function Certificates() {
                   </a>
                 </div>
               </div>
-            </article>
+              </motion.article>
+            </AnimatePresence>
           </Reveal>
 
           {/* Understated Editorial Roadmap Footnote */}

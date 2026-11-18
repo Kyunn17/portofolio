@@ -395,6 +395,7 @@ export type Certificate = {
   issuedDate: string
   validUntil: string
   totalHours: string
+  pageCount: number
   signatory: string
   pdfUrl: string
   verifyUrl: string
@@ -405,6 +406,88 @@ export type Certificate = {
 
 export const certificates: Certificate[] = [
   {
+    id: 'dicoding-js-basic',
+    credentialId: '53XEMDKM9PRN',
+    title: 'Belajar Dasar Pemrograman JavaScript',
+    subtitle: 'Sertifikat Kompetensi Kelulusan — JavaScript Programming Fundamentals',
+    issuer: 'Dicoding Indonesia',
+    partnerBadge: 'AWS Validated Industry Standard',
+    issuedDate: '18 November 2026',
+    validUntil: '18 November 2029',
+    totalHours: '46 Hours',
+    pageCount: 3,
+    signatory: 'Narenda Wicaksono (CEO, Dicoding Indonesia)',
+    pdfUrl: '/pdf/certificate2.pdf',
+    verifyUrl: 'https://www.dicoding.com/certificates/53XEMDKM9PRN',
+    description:
+      'Industry-standard competency certification validated by AWS for mastering JavaScript fundamentals for web and Node.js back-end development—covering ES modules, OOP, functional programming, asynchronous workflows, and tested code quality.',
+    competencies: [
+      'JavaScript & Node.js',
+      'Data Structures (Map/Set)',
+      'ECMAScript Modules',
+      'OOP & Functional Paradigm',
+      'Async / Promises / Await',
+      'Code Quality & Testing',
+    ],
+    modules: [
+      {
+        title: '01. Persiapan Belajar',
+        duration: '45m',
+        summary: 'Course introduction, learning roadmap, and development setup.',
+      },
+      {
+        title: '02. Gerbang Dunia JavaScript',
+        duration: '1h 05m',
+        summary: 'Running JavaScript locally across Browser, Node.js, Bun, and Deno runtimes.',
+      },
+      {
+        title: '03. Mengarungi Lautan Sintaksis',
+        duration: '2h 45m',
+        summary: 'Variables, primitive/composite data types, operators, and clean code comments.',
+      },
+      {
+        title: '04. Bermain dengan Function',
+        duration: '2h 40m',
+        summary: 'Abstracting reusable application logic with JavaScript functions.',
+      },
+      {
+        title: '05. Bukan Sembarang Data',
+        duration: '3h 05m',
+        summary: 'Managing structured program state using Object, Array, Map, and Set.',
+      },
+      {
+        title: '06. Sang Pengatur Program',
+        duration: '2h 55m',
+        summary: 'Conditionals, looping constructs, and structured error handling.',
+      },
+      {
+        title: '07. Modularisasi Harmonis',
+        duration: '2h 30m',
+        summary: 'Splitting applications into maintainable files via ECMAScript Modules.',
+      },
+      {
+        title: '08. Menyelami Dunia OOP',
+        duration: '3h 40m',
+        summary: 'Modeling real-world software problems with Object-Oriented Programming.',
+      },
+      {
+        title: '09. Functional Programming',
+        duration: '3h 40m',
+        summary: 'Composing pure, predictable logic using Functional Programming paradigms.',
+      },
+      {
+        title: '10. Asynchronous Process',
+        duration: '3h 45m',
+        summary: 'Handling asynchronous workflows with callbacks, Promises, and async-await.',
+      },
+      {
+        title: '11. Code Quality',
+        duration: '7h 25m',
+        summary: 'Writing consistent, safe, and thoroughly tested production JavaScript.',
+      },
+    ],
+  },
+  {
     id: 'dicoding-data-viz',
     credentialId: 'RVZKMW19EXD5',
     title: 'Belajar Dasar Visualisasi Data',
@@ -414,6 +497,7 @@ export const certificates: Certificate[] = [
     issuedDate: '10 November 2026',
     validUntil: '10 November 2029',
     totalHours: '16 Hours',
+    pageCount: 2,
     signatory: 'Narenda Wicaksono (CEO, Dicoding Indonesia)',
     pdfUrl: '/pdf/certificate1.pdf',
     verifyUrl: 'https://www.dicoding.com/certificates/RVZKMW19EXD5',
